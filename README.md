@@ -1,6 +1,8 @@
 Weather Data Aggregation Application (WDAA)
 ===========================================
 
+[![Build Status](https://travis-ci.org/ddsm-team/weather-app.svg?branch=master)](https://travis-ci.org/ddsm-team/weather-app)
+
 ## Prerequisites
 
 * Java 8
