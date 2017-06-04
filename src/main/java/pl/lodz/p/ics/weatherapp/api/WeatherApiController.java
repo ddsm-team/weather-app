@@ -49,6 +49,7 @@ public abstract class WeatherApiController implements Runnable {
             HttpResponse response = client.execute(request);
             in = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
             BufferedReader rd = new BufferedReader(in);
+
             String line;
             while ((line = rd.readLine()) != null) {
                 jsonResponseBuilder.append(line);
