@@ -2,21 +2,21 @@ package pl.lodz.p.ics.weatherapp.api;
 
 public interface WeatherApiProviderInterface {
 
-    double getTemperatureMin();
+    Double getTemperatureMin();
 
-    double getTemperatureMax();
+    Double getTemperatureMax();
 
-    double getPressure();
+    Double getPressure();
 
-    double getHumidity();
+    Double getHumidity();
 
-    double getWindSpeed();
+    Double getWindSpeed();
 
-    double getWindDirection();
+    Double getWindDirection();
 
-    double getCloudsDensity();
+    Double getCloudsDensity();
 
-    double getRainVolume();
+    Double getRainVolume();
 
-    double getSnowVolume();
+    Double getSnowVolume();
 }
