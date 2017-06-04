@@ -55,8 +55,6 @@ public abstract class WeatherApiController implements Runnable {
                 jsonResponseBuilder.append(line);
                 jsonResponseBuilder.append("\n");
             }
-            in.close();
-            in = null;
 
             return jsonResponseBuilder.toString();
 
