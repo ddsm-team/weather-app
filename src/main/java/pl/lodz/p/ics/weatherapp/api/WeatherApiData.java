@@ -10,6 +10,16 @@ public class WeatherApiData {
     private Double windDirection;
     private Double cloudsDensity;
 
+    public WeatherApiData() {
+        this.temperatureMin = 0.0;
+        this.temperatureMax = 0.0;
+        this.pressure = 0.0;
+        this.humidity = 0.0;
+        this.windSpeed = 0.0;
+        this.windDirection = 0.0;
+        this.cloudsDensity = 0.0;
+    }
+
     public WeatherApiData(Double temperatureMin, Double temperatureMax, Double pressure,
                           Double humidity, Double windSpeed, Double windDirection,
                           Double cloudsDensity) {
