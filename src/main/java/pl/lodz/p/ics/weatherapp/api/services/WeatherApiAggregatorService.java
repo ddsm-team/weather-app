@@ -1,10 +1,12 @@
 package pl.lodz.p.ics.weatherapp.api.services;
 
+import org.springframework.stereotype.Service;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiData;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiInterface;
 
 import java.util.List;
 
+@Service
 public class WeatherApiAggregatorService implements WeatherApiInterface {
 
     private List<WeatherApiInterface> services;
