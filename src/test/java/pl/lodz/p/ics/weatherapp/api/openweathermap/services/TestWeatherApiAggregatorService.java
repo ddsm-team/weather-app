@@ -19,22 +19,20 @@ public class TestWeatherApiAggregatorService {
         // GIVEN
         Double lat = 100.0;
         Double lon = 150.0;
-        List<WeatherApiInterface> services = new ArrayList<>(2);
         WeatherApiInterface service1 = mock(WeatherApiInterface.class);
         when(service1.getData(lat, lon)).thenReturn(new WeatherApiData(
                 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0
         ));
-        services.add(service1);
         WeatherApiInterface service2 = mock(WeatherApiInterface.class);
         when(service2.getData(lat, lon)).thenReturn(new WeatherApiData(
                 3.0, 6.0, 9.0, 12.0, 15.0, 18.0, 21.0
         ));
-        services.add(service2);
         WeatherApiData expectedResult = new WeatherApiData(
                 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0
         );
-        WeatherApiAggregatorService aggregator
-                = new WeatherApiAggregatorService(services);
+        WeatherApiAggregatorService aggregator = new WeatherApiAggregatorService();
+        aggregator.addService(service1);
+        aggregator.addService(service2);
         // WHEN
         WeatherApiData result = aggregator.getData(lat, lon);
         // THEN
@@ -46,9 +44,7 @@ public class TestWeatherApiAggregatorService {
         // GIVEN
         Double lat = 100.0;
         Double lon = 150.0;
-        List<WeatherApiInterface> services = new ArrayList<>(0);
-        WeatherApiAggregatorService aggregator
-                = new WeatherApiAggregatorService(services);
+        WeatherApiAggregatorService aggregator = new WeatherApiAggregatorService();
         // WHEN
         WeatherApiData result = aggregator.getData(lat, lon);
         // THEN

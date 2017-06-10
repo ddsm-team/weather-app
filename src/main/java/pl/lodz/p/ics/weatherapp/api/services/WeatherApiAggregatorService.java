@@ -4,15 +4,16 @@ import org.springframework.stereotype.Service;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiData;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class WeatherApiAggregatorService implements WeatherApiInterface {
 
-    private List<WeatherApiInterface> services;
+    private List<WeatherApiInterface> services = new ArrayList<>();
 
-    public WeatherApiAggregatorService(List<WeatherApiInterface> services) {
-        this.services = services;
+    public void addService(WeatherApiInterface service) {
+        this.services.add(service);
     }
 
     @Override
