@@ -1,0 +1,21 @@
+body > #content {
+    margin-top: 50px;
+}
+
+#location-search h2,
+#location-search h4 {
+    text-align: center;
+}
+
+form#main input {
+    width: 100%;
+}
+
+form#main #control {
+    text-align: center;
+}
+
+form#main .row {
+    width: 100%;
+    margin-top: 12px;
+}

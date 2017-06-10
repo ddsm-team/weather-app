@@ -2,14 +2,33 @@
 <html>
     <head>
         {%- block head %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
             <title>{%- block title -%}{%- endblock -%} Weather Data Aggregator</title>
-            <meta charset="text/html; charset=UTF-8">
+
+            <!-- Stylesheets -->
             <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" href="/css/default.css">
         {% endblock -%}
     </head>
     <body>
-        {%- block content %}{% endblock -%}
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Weather Data Aggregator</a>
+                </div>
+          < /div>
+        </nav>
+
+        <!-- Content -->
+        <div id="content" class="container">
+            {%- block content %}{% endblock -%}
+        </div>
+
+        <!-- Scripts -->
         <script href="/webjars/jquery/2.1.1/jquery.min.js"></script>
         <script href="/webjars/bootstrap/js/bootstrap.min.js"></script>
     </body>
