@@ -13,6 +13,8 @@ public class DarkSkyApiController extends WeatherApiController {
 
     private DarkSky darkSky;
 
+    public DarkSkyApiController() { }
+
     public DarkSkyApiController(Double latitude, Double longitude) {
         super(latitude, longitude);
     }

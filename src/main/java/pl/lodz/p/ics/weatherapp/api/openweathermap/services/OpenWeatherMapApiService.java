@@ -13,6 +13,8 @@ public class OpenWeatherMapApiService implements WeatherApiInterface {
 
     @Override
     public WeatherApiData getData(Double latitude, Double longitude) {
+        controller.setLatitude(latitude);
+        controller.setLongitude(longitude);
         OpenWeatherMap openWeatherMap = controller.getOpenWeatherMap();
 
         return new WeatherApiData(

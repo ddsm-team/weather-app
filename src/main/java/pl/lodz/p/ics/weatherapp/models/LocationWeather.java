@@ -8,8 +8,9 @@ import java.sql.Timestamp;
 public class LocationWeather {
 
     @Id
-    @Column(name = "id")
-    private Double id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
@@ -45,6 +46,10 @@ public class LocationWeather {
 
     public Timestamp getTimestamp() {
         return new Timestamp(timestamp.getTime());
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = new Timestamp(timestamp.getTime());
     }
 
     @Override

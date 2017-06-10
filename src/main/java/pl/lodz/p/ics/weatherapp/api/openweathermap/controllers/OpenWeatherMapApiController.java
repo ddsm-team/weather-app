@@ -6,12 +6,13 @@ import pl.lodz.p.ics.weatherapp.api.WeatherApiController;
 import pl.lodz.p.ics.weatherapp.api.openweathermap.models.OpenWeatherMap;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 
 public class OpenWeatherMapApiController extends WeatherApiController {
 
     private OpenWeatherMap openWeatherMap;
+
+    public OpenWeatherMapApiController() { }
 
     public OpenWeatherMapApiController(Double latitude, Double longitude) {
         super(latitude, longitude);
@@ -30,7 +31,7 @@ public class OpenWeatherMapApiController extends WeatherApiController {
             try {
                 setOpenWeatherMap(getObjectMapper().readValue(jsonResponse,
                         OpenWeatherMap.class));
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
@@ -51,7 +52,7 @@ public class OpenWeatherMapApiController extends WeatherApiController {
             params.put("lon", Double.toString(getLongitude()));
 
             return new HttpGet(buildUri(url, params));
-        } catch (URISyntaxException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

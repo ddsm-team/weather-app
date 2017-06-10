@@ -13,6 +13,8 @@ public class DarkSkyApiService implements WeatherApiInterface {
 
     @Override
     public WeatherApiData getData(Double latitude, Double longitude) {
+        controller.setLatitude(latitude);
+        controller.setLongitude(longitude);
         DarkSky darkSky = controller.getDarkSky();
 
         return new WeatherApiData(

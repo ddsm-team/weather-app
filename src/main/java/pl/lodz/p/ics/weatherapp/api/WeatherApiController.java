@@ -6,6 +6,8 @@ public abstract class WeatherApiController extends HttpRequestController
     private Double latitude;
     private Double longitude;
 
+    public WeatherApiController() { }
+
     public WeatherApiController(Double latitude, Double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
