@@ -10,6 +10,8 @@
 
             <!-- Stylesheets -->
             <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
             <link rel="stylesheet" href="/css/default.css">
         {% endblock -%}
     </head>
@@ -25,6 +27,28 @@
 
         <!-- Content -->
         <div id="content" class="container">
+            <div class="row">
+                <div id="location-search" class="col-md-8 col-md-offset-2">
+                    <h2>Wonder what's the weather?</h2>
+                    <h4>Type and check!</h4>
+
+                    <form id="main" action="/weather" method="GET">
+                        <div class="form-group">
+                            <label class="sr-only" for="location">Location</label>
+                            <div class="row">
+                                <input type="text" class="form-control input-lg" id="location"
+                                    name="location" placeholder="Enter your location..."
+                                    value="{{ location }}">
+                            </div>
+                            <div id="control" class="row">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Check the weather!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             {%- block content %}{% endblock -%}
         </div>
 

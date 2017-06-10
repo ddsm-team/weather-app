@@ -1,0 +1,106 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ location }} - {% endblock %}
+
+{% block content %}
+    {% set w_icon = 'wi-na' %}
+
+    {% if wSpd < 30 %}
+        {% if cDns < 10 %}
+            {% set w_icon = 'wi-day-sunny' %}
+        {% elseif cDns < 30 %}
+            {% set w_icon = 'wi-day-sunny-overcast' %}
+        {% elseif cDns < 60 %}
+            {% set w_icon = 'wi-day-cloudy' %}
+        {% else %}
+            {% set w_icon = 'wi-cloud' %}
+        {% endif %}
+    {% elseif wSpd < 60 %}
+        {% if cDns < 10 %}
+            {% set w_icon = 'wi-day-light-wind' %}
+        {% elseif cDns < 60 %}
+            {% set w_icon = 'wi-day-cloudy-windy' %}
+        {% else %}
+            {% set w_icon = 'wi-cloudy-windy' %}
+        {% endif %}
+    {% else %}
+        {% if cDns < 10 %}
+            {% set w_icon = 'wi-day-windy' %}
+        {% elseif cDns < 60 %}
+            {% set w_icon = 'wi-day-cloudy-gusts' %}
+        {% else %}
+            {% set w_icon = 'wi-cloudy-gusts' %}
+        {% endif %}
+    {% endif %}
+
+    {% set d_icon = 'wi-na' %}
+
+    {% if wDir >= 338 or wDir < 23 %}
+        {% set d_icon = 'wi-direction-up' %}
+    {% elseif wDir >= 23 and wDir < 68 %}
+        {% set d_icon = 'wi-direction-up-right' %}
+    {% elseif wDir >= 68 and wDir < 113 %}
+        {% set d_icon = 'wi-direction-right' %}
+    {% elseif wDir >= 113 and wDir < 158 %}
+        {% set d_icon = 'wi-direction-down-right' %}
+    {% elseif wDir >= 158 and wDir < 203 %}
+        {% set d_icon = 'wi-direction-down' %}
+    {% elseif wDir >= 203 and wDir < 248 %}
+        {% set d_icon = 'wi-direction-down-left' %}
+    {% elseif wDir >= 248 and wDir < 293 %}
+        {% set d_icon = 'wi-direction-left' %}
+    {% else %}
+        {% set d_icon = 'wi-direction-up-left' %}
+    {% endif %}
+
+    <hr>
+
+    {% if error %}
+        <p><b>{{ error }}</b></p>
+    {% endif %}
+
+    {% if weather %}
+        <div class="row" style="text-align: center">
+            <span style="font-size: 5em">
+                <i class="wi {{ w_icon }}"></i> {{ tMax }}°C
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="wi {{ d_icon }}"></i> {{ wSpd }} km/h
+            </span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Temperature</td>
+                        <td>{{ tMin }}°C</td>
+                    </tr>
+                    <tr>
+                        <td>Pressure</td>
+                        <td>{{ pres }} hPa</td>
+                    </tr>
+                    <tr>
+                        <td>Humidity</td>
+                        <td>{{ humi }}%</td>
+                    </tr>
+                    <tr>
+                        <td>Wind speed</td>
+                        <td>{{ wSpd }} km/h</td>
+                    </tr>
+                    <tr>
+                        <td>Wind direction</td>
+                        <td>{{ wDir }}° from <i class="wi wi-direction-up"></i>N</td>
+                    </tr>
+                    <tr>
+                        <td>Clouds density</td>
+                        <td>{{ cDns }}%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

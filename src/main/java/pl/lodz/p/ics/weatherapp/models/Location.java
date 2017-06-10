@@ -16,11 +16,8 @@ public class Location {
     @Column(name = "longitude")
     private Double longitude;
 
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "country")
-    private String country;
+    @Column(name = "name")
+    private String name;
 
     @OneToMany(mappedBy = "location")
     private List<LocationWeather> locationWeathers;
@@ -43,20 +40,12 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public String getCity() {
-        return city;
+    public String getName() {
+        return name;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -86,8 +75,7 @@ public class Location {
     @Override
     public String toString() {
         return "Location{"
-                + "city='" + city + '\''
-                + ", country='" + country + '\''
+                + "name='" + name + '\''
                 + '}';
     }
 }

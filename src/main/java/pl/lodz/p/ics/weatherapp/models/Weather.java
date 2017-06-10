@@ -7,8 +7,9 @@ import javax.persistence.*;
 public class Weather {
 
     @Id
-    @Column(name = "id")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    private Long id;
 
     @Column(name = "temperature_min")
     private Double temperatureMin;
@@ -31,19 +32,13 @@ public class Weather {
     @Column(name = "clouds_density")
     private Double cloudsDensity;
 
-    @Column(name = "rain_volume")
-    private Double rainVolume;
-
-    @Column(name = "snow_volume")
-    private Double snowVolume;
-
     public Weather() { }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -103,22 +98,6 @@ public class Weather {
         this.cloudsDensity = cloudsDensity;
     }
 
-    public Double getRainVolume() {
-        return rainVolume;
-    }
-
-    public void setRainVolume(Double rainVolume) {
-        this.rainVolume = rainVolume;
-    }
-
-    public Double getSnowVolume() {
-        return snowVolume;
-    }
-
-    public void setSnowVolume(Double snowVolume) {
-        this.snowVolume = snowVolume;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -143,11 +122,7 @@ public class Weather {
                 && (windDirection != null ? windDirection.equals(weather.windDirection)
                 : weather.windDirection == null)
                 && (cloudsDensity != null ? cloudsDensity.equals(weather.cloudsDensity)
-                : weather.cloudsDensity == null)
-                && (rainVolume != null ? rainVolume.equals(weather.rainVolume)
-                : weather.rainVolume == null)
-                && (snowVolume != null ? snowVolume.equals(weather.snowVolume)
-                : weather.snowVolume == null);
+                : weather.cloudsDensity == null);
     }
 
     @Override
@@ -159,8 +134,6 @@ public class Weather {
         result = 31 * result + (windSpeed != null ? windSpeed.hashCode() : 0);
         result = 31 * result + (windDirection != null ? windDirection.hashCode() : 0);
         result = 31 * result + (cloudsDensity != null ? cloudsDensity.hashCode() : 0);
-        result = 31 * result + (rainVolume != null ? rainVolume.hashCode() : 0);
-        result = 31 * result + (snowVolume != null ? snowVolume.hashCode() : 0);
         return result;
     }
 
@@ -174,8 +147,6 @@ public class Weather {
                 + ", windSpeed=" + windSpeed
                 + ", windDirection=" + windDirection
                 + ", cloudsDensity=" + cloudsDensity
-                + ", rainVolume=" + rainVolume
-                + ", snowVolume=" + snowVolume
                 + '}';
     }
 }
