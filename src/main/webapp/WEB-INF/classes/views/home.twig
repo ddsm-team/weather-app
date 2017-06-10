@@ -1,5 +1,25 @@
 {% extends "base.twig" %}
-{% block title %}Home{% endblock%}
+
+{% block title %}Home - {% endblock%}
+
 {% block content %}
-Hello!
+    <div id="location-search" class="col-md-8 col-md-offset-2">
+        <h2>Wonder what's the weather?</h2>
+        <h4>Type and check!</h4>
+
+        <form id="main" action="/weather" method="GET">
+            <div class="form-group">
+                <label class="sr-only" for="location">Location</label>
+                <div class="row">
+                    <input type="text" class="form-control input-lg" id="location"
+                        placeholder="Enter your location...">
+                </div>
+                <div id="control" class="row">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Check the weather!
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}
