@@ -1,4 +1,4 @@
-package pl.lodz.p.ics.weatherapp.api.openweathermap.services;
+package pl.lodz.p.ics.weatherapp.api.services;
 
 import org.junit.Test;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiData;
