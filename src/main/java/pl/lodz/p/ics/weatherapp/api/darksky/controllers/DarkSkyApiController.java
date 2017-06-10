@@ -14,8 +14,6 @@ public class DarkSkyApiController extends WeatherApiController {
 
     private DarkSky darkSky;
 
-    private ObjectMapper objectMapper;
-
     public DarkSkyApiController(Double latitude, Double longitude) {
         super(latitude, longitude);
     }
@@ -47,14 +45,6 @@ public class DarkSkyApiController extends WeatherApiController {
 
     public void setDarkSky(DarkSky darkSky) {
         this.darkSky = darkSky;
-    }
-
-    public ObjectMapper getObjectMapper() {
-        return objectMapper;
-    }
-
-    public void setObjectMapper(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
     }
 
     @Override
