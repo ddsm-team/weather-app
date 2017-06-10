@@ -1,6 +1,5 @@
 package pl.lodz.p.ics.weatherapp.api.openweathermap.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpRequestBase;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiController;
@@ -13,8 +12,6 @@ import java.util.HashMap;
 public class OpenWeatherMapApiController extends WeatherApiController {
 
     private OpenWeatherMap openWeatherMap;
-
-    private ObjectMapper objectMapper;
 
     public OpenWeatherMapApiController(Double latitude, Double longitude) {
         super(latitude, longitude);
@@ -66,13 +63,5 @@ public class OpenWeatherMapApiController extends WeatherApiController {
 
     public void setOpenWeatherMap(OpenWeatherMap openWeatherMap) {
         this.openWeatherMap = openWeatherMap;
-    }
-
-    public ObjectMapper getObjectMapper() {
-        return objectMapper;
-    }
-
-    public void setObjectMapper(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
     }
 }
