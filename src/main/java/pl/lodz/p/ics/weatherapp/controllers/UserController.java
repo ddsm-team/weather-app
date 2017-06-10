@@ -15,12 +15,12 @@ import pl.lodz.p.ics.weatherapp.services.UserService;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@RequestParam(required = true) String login, @RequestParam(required = true) String password,
-            Model model) {
-
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam(required = true) String login,
+                        @RequestParam(required = true) String password,
+                        Model model) {
         try {
             userService.login(login, password);
 
@@ -32,10 +32,12 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(@RequestParam(required = true) String login, @RequestParam(required = true) String password,
-            @RequestParam(required = true) String city, @RequestParam(required = true) String country, Model model) {
-
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String register(@RequestParam(required = true) String login,
+                           @RequestParam(required = true) String password,
+                           @RequestParam(required = true) String city,
+                           @RequestParam(required = true) String country,
+                           Model model) {
         try {
             userService.register(login, password, city, country);
             model.addAttribute("success", "Account created.");

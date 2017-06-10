@@ -18,9 +18,9 @@ import org.springframework.web.servlet.ViewResolver;
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
-    
+
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -33,7 +33,7 @@ public class Application {
         viewResolver.setSuffix(".twig");
         return viewResolver;
     }
-    
+
     @Bean
     public UserService getUserService() {
         return this.userService;

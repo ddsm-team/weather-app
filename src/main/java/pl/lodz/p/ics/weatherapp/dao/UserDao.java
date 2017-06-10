@@ -8,7 +8,7 @@ import pl.lodz.p.ics.weatherapp.models.User;
 public interface UserDao extends CrudRepository<User, Integer> {
 
     User findByLogin(String login);
-    
+
     @Transactional
     void deleteByLogin(String login);
 }

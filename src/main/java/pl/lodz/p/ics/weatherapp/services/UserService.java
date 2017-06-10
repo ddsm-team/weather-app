@@ -19,7 +19,8 @@ public class UserService {
     private UserDao userDao;
 
     @Transactional
-    public void register(String login, String password, String city, String country) throws UserAlreadyExistsException {
+    public void register(String login, String password, String city, String country)
+            throws UserAlreadyExistsException {
         User user = userDao.findByLogin(login);
         if (user != null) {
             throw new UserAlreadyExistsException("User already exists.");
@@ -36,7 +37,8 @@ public class UserService {
             if (!user.getPassword().equals(password)) {
                 throw new BadCredentialsException("Wrong credentials.");
             } else {
-                UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, user.getLogin());
+                UsernamePasswordAuthenticationToken token
+                        = new UsernamePasswordAuthenticationToken(user, user.getLogin());
                 SecurityContextHolder.getContext().setAuthentication(token);
                 return user;
             }
@@ -44,10 +46,12 @@ public class UserService {
     }
 
     public String getAddress() throws UserIsNotLoggedInException {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(user == null){
-            throw new UserIsNotLoggedInException("To get user address, you need to log in first.");
-        } else{
+        User user = (User) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        if (user == null) {
+            throw new UserIsNotLoggedInException(
+                    "To get user address, you need to log in first.");
+        } else {
             return user.getCity() + ", " + user.getCountry();
         }
     }
