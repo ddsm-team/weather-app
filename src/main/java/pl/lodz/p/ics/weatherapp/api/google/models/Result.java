@@ -36,7 +36,8 @@ public class Result {
     public Result() {
     }
 
-    public Result(List<AddressComponent> addressComponents, String formattedAddress, Geometry geometry, String placeId, List<String> types) {
+    public Result(List<AddressComponent> addressComponents, String formattedAddress,
+                  Geometry geometry, String placeId, List<String> types) {
         super();
         this.addressComponents = addressComponents;
         this.formattedAddress = formattedAddress;

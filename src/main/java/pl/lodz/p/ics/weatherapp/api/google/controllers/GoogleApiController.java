@@ -45,13 +45,13 @@ public class GoogleApiController extends HttpRequestController {
 
     @Override
     protected HttpRequestBase getRequestObject() {
-        String api_key = "AIzaSyB3IdbTz3MH1nu6zdqQb4r06Dt866YkcnQ";
+        String apiKey = "AIzaSyB3IdbTz3MH1nu6zdqQb4r06Dt866YkcnQ";
 
         try {
             String url = "https://maps.googleapis.com/maps/api/geocode/json";
 
             HashMap<String, String> params = new HashMap<>(3);
-            params.put("key", api_key);
+            params.put("key", apiKey);
             params.put("address", getAddress());
 
             return new HttpPost(buildUri(url, params));
