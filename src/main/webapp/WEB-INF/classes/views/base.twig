@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% block head %}
-            <title>{% block title %}{% endblock %} WDAA</title>
+        {%- block head %}
+            <title>{%- block title -%}{%- endblock -%} Weather Data Aggregator</title>
             <meta charset="text/html; charset=UTF-8">
-            <link rel="stylesheet" href="/css/default.css" />
-        {% endblock %}
+            <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/css/default.css">
+        {% endblock -%}
     </head>
     <body>
-        {% block content %}
-
-        {% endblock %}
+        {%- block content %}{% endblock -%}
+        <script href="/webjars/jquery/2.1.1/jquery.min.js"></script>
+        <script href="/webjars/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
