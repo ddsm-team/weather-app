@@ -8,14 +8,14 @@ import pl.lodz.p.ics.weatherapp.api.services.WeatherApiAggregatorService;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class TestWeatherApiAggregatorService {
 
     @Test
-    public void testGetDataShouldReturnAverageDataValues() {
+    public void testGetDataShouldReturnAverageDataValuesWhenServicesAvailable() {
         // GIVEN
         Double lat = 100.0;
         Double lon = 150.0;
@@ -39,5 +39,19 @@ public class TestWeatherApiAggregatorService {
         WeatherApiData result = aggregator.getData(lat, lon);
         // THEN
         assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void testGetDataShouldReturnNullWhenNoServices() {
+        // GIVEN
+        Double lat = 100.0;
+        Double lon = 150.0;
+        List<WeatherApiInterface> services = new ArrayList<>(0);
+        WeatherApiAggregatorService aggregator
+                = new WeatherApiAggregatorService(services);
+        // WHEN
+        WeatherApiData result = aggregator.getData(lat, lon);
+        // THEN
+        assertNull(result);
     }
 }
