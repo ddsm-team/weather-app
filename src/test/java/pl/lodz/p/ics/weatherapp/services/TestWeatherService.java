@@ -1,5 +1,6 @@
 package pl.lodz.p.ics.weatherapp.services;
 
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 import java.sql.Timestamp;
@@ -61,19 +62,18 @@ public class TestWeatherService {
         assertEquals(message, "Could not find the place.");
     }
 
-    // mock problem
-    // @Test
-    // public void testGetWeatherForLocationShouldReturnNonNullObject() {
-    // // GIVEN
-    // String location = "Łódź, Polska";
-    // LocationWeather lw = null;
-    // // WHEN
-    // try {
-    // lw = weatherService.getWeatherForLocation(location);
-    // } catch (LocationNotFoundException e) {
-    // e.printStackTrace();
-    // }
-    // // THEN
-    // Assert.notNull(lw);
-    // }
+     @Test
+     public void testGetWeatherForLocationShouldReturnNonNullObject() {
+        // GIVEN
+        String location = "Łódź, Polska";
+        LocationWeather lw = null;
+         // WHEN
+         try {
+            lw = weatherService.getWeatherForLocation(location);
+         } catch (LocationNotFoundException e) {
+            e.printStackTrace();
+         }
+         // THEN
+         assertNotNull(lw);
+     }
 }

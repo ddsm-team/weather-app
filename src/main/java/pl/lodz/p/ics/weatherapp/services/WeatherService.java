@@ -46,7 +46,8 @@ public class WeatherService {
     @Autowired
     private LocationWeatherDao locationWeatherDao;
 
-    public LocationWeather getWeatherForLocation(String locationName) throws LocationNotFoundException {
+    public LocationWeather getWeatherForLocation(String locationName)
+            throws LocationNotFoundException {
         GoogleInfo info = getGoogleInfoForLocation(locationName);
         if (info == null || info.getStatus().equals("ZERO_RESULTS")) {
             throw new LocationNotFoundException("Could not find the place.");
@@ -71,13 +72,16 @@ public class WeatherService {
     }
 
     @Transactional
-    public LocationWeather saveLocationWeather(String locationName, GoogleInfo info, Timestamp nowTo) {
+    public LocationWeather saveLocationWeather(String locationName, GoogleInfo info,
+                                               Timestamp nowTo) {
         LocationWeather locationWeather;
         Double latitude = info.getResults().get(0).getGeometry().getLocation().getLat();
         Double longitude = info.getResults().get(0).getGeometry().getLocation().getLng();
 
-        DarkSkyApiController darkSkyApiController = new DarkSkyApiController(latitude, longitude);
-        OpenWeatherMapApiController openWeatherMapApiController = new OpenWeatherMapApiController(latitude,
+        DarkSkyApiController darkSkyApiController
+                = new DarkSkyApiController(latitude, longitude);
+        OpenWeatherMapApiController openWeatherMapApiController
+                = new OpenWeatherMapApiController(latitude,
                 longitude);
 
         darkSkyApiController.setObjectMapper(new ObjectMapper());
@@ -120,7 +124,8 @@ public class WeatherService {
     }
 
     @Transactional
-    private Location saveLocationData(String locationName, Double latitude, Double longitude) {
+    private Location saveLocationData(String locationName, Double latitude,
+                                      Double longitude) {
         Location location = new Location();
         location.setName(locationName);
         location.setLatitude(latitude);

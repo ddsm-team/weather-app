@@ -24,11 +24,14 @@ public class MainController {
     }
 
     @RequestMapping(value = "/weather", method = RequestMethod.GET)
-    public String weather(ModelMap model, @RequestParam(value = "location") String locationName) {
+    public String weather(ModelMap model,
+                          @RequestParam(value = "location") String locationName) {
 
         try {
             LocationWeather weather = weatherService.getWeatherForLocation(locationName);
+
             Weather w = weather.getWeather();
+
             model.addAttribute("location", weather.getLocation().getName());
             model.addAttribute("weather", true);
             model.addAttribute("tMin",
