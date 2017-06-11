@@ -28,7 +28,7 @@ public class WeatherApiAggregatorService implements WeatherApiInterface {
             } catch (Exception e) {
                 // We don't want users to know that something is not working on this level
                 System.err.println("Service unavailable: " + service.toString());
-                System.err.println(e.getMessage());
+                e.printStackTrace();
             }
 
             if (data == null) {
