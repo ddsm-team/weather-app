@@ -1,6 +1,11 @@
 *.iml
 .idea/
 
+.settings/
+.checkstyle
+.classpath
+.project
+
 # Created by https://www.gitignore.io/api/java,java-web
 
 ### Java ###
