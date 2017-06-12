@@ -24,7 +24,7 @@ public class Geometry {
     @JsonProperty("viewport")
     private Viewport viewport;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public Geometry() {
     }

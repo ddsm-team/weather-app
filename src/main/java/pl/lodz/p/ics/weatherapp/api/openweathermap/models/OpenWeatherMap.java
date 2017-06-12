@@ -40,7 +40,7 @@ public class OpenWeatherMap {
     @JsonProperty("cod")
     private Integer cod;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public OpenWeatherMap() { }
 

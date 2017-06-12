@@ -3,10 +3,6 @@ package pl.lodz.p.ics.weatherapp.api.services;
 import org.junit.Test;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiData;
 import pl.lodz.p.ics.weatherapp.api.WeatherApiInterface;
-import pl.lodz.p.ics.weatherapp.api.services.WeatherApiAggregatorService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;

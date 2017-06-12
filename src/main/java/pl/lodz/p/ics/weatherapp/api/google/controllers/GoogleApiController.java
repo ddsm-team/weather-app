@@ -17,7 +17,7 @@ public class GoogleApiController extends HttpRequestController {
         this.address = address;
     }
 
-    public GoogleInfo getMappedObject() throws IOException {
+    public GoogleInfo getMappedObject() {
         String jsonResponse = null;
         try {
             jsonResponse = sendRequest();

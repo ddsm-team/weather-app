@@ -11,6 +11,7 @@ import pl.lodz.p.ics.weatherapp.models.User;
 import pl.lodz.p.ics.weatherapp.services.UserManagementService;
 import pl.lodz.p.ics.weatherapp.services.UserSecurityService;
 
+@SuppressWarnings("SameReturnValue")
 @Controller
 public class UserController {
 
