@@ -3,5 +3,92 @@
 {% block title %}Home - {% endblock %}
 
 {% block content %}
+    {% if logged_in %}
+        {% if not location %}
+            {% set location = user_location %}
+        {% endif %}
 
+        {% set w_icon = 'wi-na' %}
+        {% if user_wSpd < 30 %}
+            {% if user_cDns < 10 %}
+                {% set w_icon = 'wi-day-sunny' %}
+            {% elseif user_cDns < 30 %}
+                {% set w_icon = 'wi-day-sunny-overcast' %}
+            {% elseif user_cDns < 60 %}
+                {% set w_icon = 'wi-day-cloudy' %}
+            {% else %}
+                {% set w_icon = 'wi-cloud' %}
+            {% endif %}
+        {% elseif user_wSpd < 60 %}
+            {% if user_cDns < 10 %}
+                {% set w_icon = 'wi-day-light-wind' %}
+            {% elseif user_cDns < 60 %}
+                {% set w_icon = 'wi-day-cloudy-windy' %}
+            {% else %}
+                {% set w_icon = 'wi-cloudy-windy' %}
+            {% endif %}
+        {% else %}
+            {% if user_cDns < 10 %}
+                {% set w_icon = 'wi-day-windy' %}
+            {% elseif user_cDns < 60 %}
+                {% set w_icon = 'wi-day-cloudy-gusts' %}
+            {% else %}
+                {% set w_icon = 'wi-cloudy-gusts' %}
+            {% endif %}
+        {% endif %}
+
+        {% set d_icon = 'wi-na' %}
+
+        {% if user_wDir >= 338 or user_wDir < 23 %}
+            {% set d_icon = 'wi-direction-up' %}
+        {% elseif user_wDir >= 23 and user_wDir < 68 %}
+            {% set d_icon = 'wi-direction-up-right' %}
+        {% elseif user_wDir >= 68 and user_wDir < 113 %}
+            {% set d_icon = 'wi-direction-right' %}
+        {% elseif user_wDir >= 113 and user_wDir < 158 %}
+            {% set d_icon = 'wi-direction-down-right' %}
+        {% elseif user_wDir >= 158 and user_wDir < 203 %}
+            {% set d_icon = 'wi-direction-down' %}
+        {% elseif user_wDir >= 203 and user_wDir < 248 %}
+            {% set d_icon = 'wi-direction-down-left' %}
+        {% elseif user_wDir >= 248 and user_wDir < 293 %}
+            {% set d_icon = 'wi-direction-left' %}
+        {% else %}
+            {% set d_icon = 'wi-direction-up-left' %}
+        {% endif %}
+
+        {% if user_weather %}
+            <h3>{{ user_location }}</h3>
+            <div class="row" style="text-align: center">
+                <span style="font-size: 5em">
+                    <i class="wi {{ w_icon }}"></i> {{ user_tMin }}°C
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="wi {{ d_icon }}"></i> {{ user_wSpd }} km/h
+                </span>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="row">
+        <div id="location-search" class="col-md-8 col-md-offset-2">
+            <h2>Wonder what's the weather?</h2>
+            <h4>Type and check!</h4>
+
+            <form id="main" action="/weather" method="GET">
+                <div class="form-group">
+                    <label class="sr-only" for="location">Location</label>
+                    <div class="row">
+                        <input type="text" class="form-control input-lg" id="location"
+                            name="location" placeholder="Enter your location..."
+                            value="{{ location }}">
+                    </div>
+                    <div id="control" class="row">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Check the weather!
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

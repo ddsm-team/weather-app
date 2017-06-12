@@ -1,6 +1,5 @@
 package pl.lodz.p.ics.weatherapp.dao;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -35,15 +34,15 @@ public class TestUserDao {
         // WHEN
         userDao.save(testUser);
         // THEN
-        Assert.assertNotNull(userDao.findByLogin("adam"));
+        Assert.assertNotNull(userDao.findByUsername("adam"));
     }
     
     @Test
     public void testShouldReturnNotNullWhenUserFound(){
         // GIVEN
-        String login = testUser.getLogin();
+        String login = testUser.getUsername();
         // WHEN
-        User user = userDao.findByLogin(login);
+        User user = userDao.findByUsername(login);
         // THEN
         Assert.assertNotNull(user);
     }
@@ -51,11 +50,11 @@ public class TestUserDao {
     @Test
     public void ztestDeleteUserShouldReturnNullWhenNoUser() {
         // GIVEN
-        String login = testUser.getLogin();
+        String login = testUser.getUsername();
         // WHEN
-        userDao.deleteByLogin(login);
+        userDao.deleteByUsername(login);
         // THEN
-        Assert.assertNull(userDao.findByLogin("adam"));
+        Assert.assertNull(userDao.findByUsername("adam"));
     }
 
 }

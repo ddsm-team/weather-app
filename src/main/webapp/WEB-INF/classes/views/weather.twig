@@ -3,6 +3,29 @@
 {% block title %}{{ location }} - {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div id="location-search" class="col-md-8 col-md-offset-2">
+            <h2>Wonder what's the weather?</h2>
+            <h4>Type and check!</h4>
+
+            <form id="main" action="/weather" method="GET">
+                <div class="form-group">
+                    <label class="sr-only" for="location">Location</label>
+                    <div class="row">
+                        <input type="text" class="form-control input-lg" id="location"
+                            name="location" placeholder="Enter your location..."
+                            value="{{ location }}">
+                    </div>
+                    <div id="control" class="row">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Check the weather!
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     {% set w_icon = 'wi-na' %}
 
     {% if wSpd < 30 %}
@@ -54,10 +77,6 @@
     {% endif %}
 
     <hr>
-
-    {% if error %}
-        <p><b>{{ error }}</b></p>
-    {% endif %}
 
     {% if weather %}
         <div class="row" style="text-align: center">

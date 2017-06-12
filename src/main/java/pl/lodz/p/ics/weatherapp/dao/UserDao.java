@@ -5,10 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.lodz.p.ics.weatherapp.models.User;
 
-public interface UserDao extends CrudRepository<User, Integer> {
+public interface UserDao extends CrudRepository<User, Long> {
 
-    User findByLogin(String login);
+    User findByUsername(String username);
 
     @Transactional
-    void deleteByLogin(String login);
+    void deleteByUsername(String username);
 }

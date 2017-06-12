@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "location")
+@Table(name = "location", schema = "wdaa")
 @IdClass(LocationKey.class)
 public class Location {
 

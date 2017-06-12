@@ -7,8 +7,11 @@ Weather Data Aggregation Application (WDAA)
 
 * Java 8
 * Maven 3
+* PostgreSQL
 
 ## Configuration
+
+**Warning!** Create `wdaa` database schema in your PostgreSQL!
 
 You can change configuration in `application.properties`.
 

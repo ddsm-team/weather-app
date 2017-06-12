@@ -3,12 +3,12 @@ package pl.lodz.p.ics.weatherapp.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "weather")
+@Table(name = "weather", schema = "wdaa")
 public class Weather {
 
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
     @Column(name = "temperature_min")

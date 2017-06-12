@@ -8,4 +8,5 @@ cache:
     - $HOME/.m2
 before_script:
     - psql -c 'create database wdaa;' -U postgres
+    - psql -d 'wdaa' -c 'create schema wdaa;' -U postgres
     - mvn clean
