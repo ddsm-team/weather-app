@@ -22,16 +22,6 @@ public class UserSecurityService {
     private static final Logger LOGGER = LoggerFactory.getLogger(
             UserSecurityService.class);
 
-    public String findLoggedInUsername() {
-        Object userDetails = SecurityContextHolder.getContext().getAuthentication()
-                .getDetails();
-        if (userDetails instanceof UserDetails) {
-            return ((UserDetails)userDetails).getUsername();
-        }
-
-        return null;
-    }
-
     public boolean isLoggedIn() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getPrincipal() instanceof UserDetails;

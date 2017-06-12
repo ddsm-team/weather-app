@@ -25,7 +25,7 @@ public class AddressComponent {
     @JsonProperty("types")
     private List<String> types = null;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public AddressComponent() {
     }

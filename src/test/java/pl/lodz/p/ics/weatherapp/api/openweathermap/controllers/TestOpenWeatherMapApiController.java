@@ -33,6 +33,7 @@ public class TestOpenWeatherMapApiController {
         when(controller.sendRequest()).thenReturn(jsonResponse);
         when(controller.getObjectMapper()).thenReturn(objectMapper);
         Mockito.doCallRealMethod().when(controller).setOpenWeatherMap(owm);
+        //noinspection ResultOfMethodCallIgnored
         Mockito.doCallRealMethod().when(controller).getOpenWeatherMap();
         Mockito.doCallRealMethod().when(controller).run();
         // WHEN

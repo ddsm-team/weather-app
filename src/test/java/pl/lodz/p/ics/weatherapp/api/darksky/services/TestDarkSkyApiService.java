@@ -54,6 +54,7 @@ public class TestDarkSkyApiService {
         // WHEN
         service.getData(latitude, longitude);
         // THEN
+        //noinspection ResultOfMethodCallIgnored
         verify(controller, times(1)).getDarkSky();
     }
 

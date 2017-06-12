@@ -22,7 +22,7 @@ public class GoogleInfo {
     @JsonProperty("status")
     private String status;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public GoogleInfo() {
     }

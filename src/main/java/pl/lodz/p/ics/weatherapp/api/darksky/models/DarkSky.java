@@ -25,7 +25,7 @@ public class DarkSky {
     @JsonProperty("currently")
     private Currently currently;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public DarkSky() {
     }

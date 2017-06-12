@@ -63,6 +63,7 @@ public class TestOpenWeatherMapApiService {
         // WHEN
         service.getData(latitude, longitude);
         // THEN
+        //noinspection ResultOfMethodCallIgnored
         verify(controller, times(1)).getOpenWeatherMap();
     }
 

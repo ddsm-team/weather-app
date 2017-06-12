@@ -63,7 +63,7 @@ public class Currently {
     @JsonProperty("ozone")
     private Double ozone;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public Currently() {
     }

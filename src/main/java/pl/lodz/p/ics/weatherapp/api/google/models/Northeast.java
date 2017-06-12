@@ -21,7 +21,7 @@ public class Northeast {
     @JsonProperty("lng")
     private Double lng;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public Northeast() {
     }

@@ -99,7 +99,7 @@ public class Datum2 {
     @JsonProperty("precipAccumulation")
     private Double precipAccumulation;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public Datum2() {
     }

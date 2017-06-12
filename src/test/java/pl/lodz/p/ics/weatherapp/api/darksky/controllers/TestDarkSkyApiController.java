@@ -33,6 +33,7 @@ public class TestDarkSkyApiController {
         when(controller.sendRequest()).thenReturn(jsonResponse);
         when(controller.getObjectMapper()).thenReturn(objectMapper);
         Mockito.doCallRealMethod().when(controller).setDarkSky(ds);
+        //noinspection ResultOfMethodCallIgnored
         Mockito.doCallRealMethod().when(controller).getDarkSky();
         Mockito.doCallRealMethod().when(controller).run();
         // WHEN

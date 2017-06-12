@@ -26,7 +26,7 @@ public class Sys {
     @JsonProperty("sunset")
     private Integer sunset;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public Sys() { }
 
