@@ -72,8 +72,8 @@ public class WeatherService {
     }
 
     @Transactional
-    public LocationWeather saveLocationWeather(String locationName, GoogleInfo info,
-                                               Timestamp nowTo) {
+    private LocationWeather saveLocationWeather(String locationName, GoogleInfo info,
+                                                Timestamp nowTo) {
         LocationWeather locationWeather;
         Double latitude = info.getResults().get(0).getGeometry().getLocation().getLat();
         Double longitude = info.getResults().get(0).getGeometry().getLocation().getLng();
@@ -137,10 +137,8 @@ public class WeatherService {
     private GoogleInfo getGoogleInfoForLocation(String locationName) {
         GoogleApiController googleApiController = new GoogleApiController(locationName);
         googleApiController.setObjectMapper(new ObjectMapper());
-        GoogleInfo info = null;
         try {
-            info = googleApiController.getMappedObject();
-            return info;
+            return googleApiController.getMappedObject();
         } catch (Exception e) {
             e.printStackTrace();
         }
